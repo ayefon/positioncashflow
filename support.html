@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support — PositionCashFlow</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #f9fafb;
+            color: #1d1d1f;
+            line-height: 1.6;
+        }
+        .container { max-width: 680px; margin: 0 auto; padding: 40px 20px; }
+        .back { display: inline-block; margin-bottom: 24px; color: #007AFF; text-decoration: none; font-weight: 500; }
+        .back:hover { text-decoration: underline; }
+        h1 { font-size: 2em; font-weight: 700; margin-bottom: 32px; }
+        .card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 20px;
+        }
+        .card h2 { font-size: 1.15em; font-weight: 600; margin-bottom: 12px; }
+        .card p { margin-bottom: 12px; }
+        .card p:last-child { margin-bottom: 0; }
+        .card ol { margin: 8px 0 12px 20px; }
+        .card ol li { margin-bottom: 6px; }
+        details {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+        summary {
+            padding: 18px 28px;
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        summary::after { content: "+"; color: #86868b; font-size: 1.3em; font-weight: 300; }
+        details[open] summary::after { content: "\2212"; }
+        details .answer { padding: 0 28px 20px; color: #424245; }
+        .contact-card {
+            background: #007AFF;
+            color: white;
+            border-radius: 16px;
+            padding: 28px;
+            text-align: center;
+            margin-top: 32px;
+        }
+        .contact-card h2 { color: white; margin-bottom: 8px; }
+        .contact-card a {
+            display: inline-block;
+            background: white;
+            color: #007AFF;
+            padding: 12px 28px;
+            border-radius: 24px;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 16px;
+        }
+        footer {
+            text-align: center;
+            color: #86868b;
+            font-size: 0.85em;
+            padding: 40px 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a class="back" href="index.html">&larr; Back to PositionCashFlow</a>
+        <h1>Support</h1>
+
+        <div class="card">
+            <h2>Getting Started</h2>
+            <ol>
+                <li>Tap the <strong>+</strong> button and choose <strong>New Position</strong>.</li>
+                <li>Enter a stock symbol (e.g., AAPL, TSLA) and a date.</li>
+                <li>Tap into your position and use the toolbar at the bottom to add legs: <strong>+Stk</strong> (buy stock), <strong>&minus;C</strong> (sell call), <strong>+P</strong> (buy put), etc.</li>
+                <li>As you trade, close or roll legs to keep your position up to date.</li>
+            </ol>
+        </div>
+
+        <h2 style="font-size: 1.3em; margin: 28px 0 16px;">Frequently Asked Questions</h2>
+
+        <details>
+            <summary>Stock prices aren't loading</summary>
+            <div class="answer">
+                <p>PositionCashFlow uses the Polygon.io API (shown as "Massive" in the app) for market data. Check the following:</p>
+                <ol>
+                    <li>Open the ellipsis menu (&hellip;) and tap <strong>Settings</strong>.</li>
+                    <li>Tap the eye icon to verify your API key is present and correct.</li>
+                    <li>Stock data uses the free tier, which provides the <strong>previous trading day's close</strong>. Prices won't update during weekends or holidays.</li>
+                </ol>
+            </div>
+        </details>
+
+        <details>
+            <summary>Option prices aren't loading</summary>
+            <div class="answer">
+                <p>Option quote data requires a <strong>paid Polygon.io plan</strong> (Options Starter or higher). If you're on the free tier, stock prices will work but option leg prices will show an error. You can still record all trades manually &mdash; live pricing is optional.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>How do I get a Polygon.io API key?</summary>
+            <div class="answer">
+                <p>Visit <strong>polygon.io</strong> and create a free account. Your API key will be shown on the dashboard. Copy it and paste it into the Settings screen in the app. The free tier includes stock price data (previous close).</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>How do I import ThinkorSwim trades?</summary>
+            <div class="answer">
+                <p>In ThinkorSwim, export your trade history as a CSV file. Then in PositionCashFlow:</p>
+                <ol>
+                    <li>Tap <strong>+</strong> and choose <strong>Load CSV Data</strong>.</li>
+                    <li>Select your CSV file from the file picker.</li>
+                    <li>The app will parse and display the imported records.</li>
+                    <li>When adding legs to a position, use <strong>Fill from CSV</strong> to match imported entries.</li>
+                </ol>
+            </div>
+        </details>
+
+        <details>
+            <summary>What is "Position Value"?</summary>
+            <div class="answer">
+                <p>Position Value is the estimated liquidation value of your position: what you'd receive if you closed all open legs at current market prices, combined with your net cashflow. For options, each contract represents 100 shares. If prices aren't available for all legs, Position Value won't be shown.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>How do I roll an option?</summary>
+            <div class="answer">
+                <p>Tap into a position, find the open leg you want to roll, and tap <strong>Roll</strong>. This closes the existing leg and opens a new one at the strike and expiration you choose. The net credit or debit is recorded as a single roll transaction.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>How do I back up my data?</summary>
+            <div class="answer">
+                <p>Tap the ellipsis menu (&hellip;) and choose <strong>Export Data</strong>. This creates a JSON file containing all your positions, legs, and transactions. Use the share sheet to save it to Files, AirDrop it, or email it to yourself. To restore, use <strong>Import Data</strong> and select the JSON file.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Can I delete a position or transaction?</summary>
+            <div class="answer">
+                <p>Yes. Swipe left on any position in the list, any transaction in the detail view, or any closed leg to delete it. This action cannot be undone, so back up your data first if you're unsure.</p>
+            </div>
+        </details>
+
+        <div class="contact-card">
+            <h2>Need More Help?</h2>
+            <p>If you've found a bug or have a feature request, let us know on GitHub.</p>
+            <a href="https://github.com/ayefon/PositionCashFlow/issues">Open an Issue</a>
+        </div>
+
+        <footer>&copy; 2025 Don Babcock. All rights reserved.</footer>
+    </div>
+</body>
+</html>
