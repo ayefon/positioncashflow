@@ -92,28 +92,37 @@
         <h2 style="font-size: 1.3em; margin: 28px 0 16px;">Frequently Asked Questions</h2>
 
         <details>
-            <summary>Stock prices aren't loading</summary>
+            <summary>Do I need an API key to use the app?</summary>
             <div class="answer">
-                <p>PositionCashFlow uses the Polygon.io API (shown as "Massive" in the app) for market data. Check the following:</p>
+                <p><strong>No.</strong> PositionCashFlow is fully functional without any external service. You can create positions, add legs, record trades, close, roll, import from CSV, and export your data &mdash; all without an API key. All premium, price, and quantity information can be entered manually.</p>
+                <p>Live market pricing is an optional feature for users who want automatic stock and option quotes displayed alongside their positions.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>How do I enable live market pricing?</summary>
+            <div class="answer">
+                <p>If you'd like automatic price data:</p>
                 <ol>
-                    <li>Open the ellipsis menu (&hellip;) and tap <strong>Settings</strong>.</li>
-                    <li>Tap the eye icon to verify your API key is present and correct.</li>
-                    <li>Stock data uses the free tier, which provides the <strong>previous trading day's close</strong>. Prices won't update during weekends or holidays.</li>
+                    <li>Visit <strong>polygon.io</strong> and create a free account.</li>
+                    <li>Copy your API key from the Polygon.io dashboard.</li>
+                    <li>In the app, open the ellipsis menu (&hellip;) and tap <strong>Settings</strong>.</li>
+                    <li>Paste your API key and tap <strong>Done</strong>.</li>
                 </ol>
+                <p>The free Polygon.io tier provides <strong>previous trading day's close</strong> for stocks. Option quotes require a paid Polygon.io plan (Options Starter or higher). Without a paid plan, you can still enter option prices manually when adding or closing legs.</p>
             </div>
         </details>
 
         <details>
-            <summary>Option prices aren't loading</summary>
+            <summary>Stock or option prices aren't loading</summary>
             <div class="answer">
-                <p>Option quote data requires a <strong>paid Polygon.io plan</strong> (Options Starter or higher). If you're on the free tier, stock prices will work but option leg prices will show an error. You can still record all trades manually &mdash; live pricing is optional.</p>
-            </div>
-        </details>
-
-        <details>
-            <summary>How do I get a Polygon.io API key?</summary>
-            <div class="answer">
-                <p>Visit <strong>polygon.io</strong> and create a free account. Your API key will be shown on the dashboard. Copy it and paste it into the Settings screen in the app. The free tier includes stock price data (previous close).</p>
+                <p>If you've added an API key but prices aren't appearing, check the following:</p>
+                <ol>
+                    <li>Open <strong>Settings</strong> and tap the eye icon to verify your key is correct.</li>
+                    <li>Stock data uses the free tier &mdash; prices won't update during weekends or holidays.</li>
+                    <li>Option quotes require a paid Polygon.io plan. On the free tier, stock prices will appear but option prices won't.</li>
+                </ol>
+                <p>If you don't need live pricing, you can simply remove the API key from Settings. The app will skip all network calls and you can enter prices manually.</p>
             </div>
         </details>
 
@@ -133,7 +142,8 @@
         <details>
             <summary>What is "Position Value"?</summary>
             <div class="answer">
-                <p>Position Value is the estimated liquidation value of your position: what you'd receive if you closed all open legs at current market prices, combined with your net cashflow. For options, each contract represents 100 shares. If prices aren't available for all legs, Position Value won't be shown.</p>
+                <p>Position Value is the estimated liquidation value of your position: what you'd receive if you closed all open legs at current market prices, combined with your net cashflow. For options, each contract represents 100 shares.</p>
+                <p>This field only appears when live pricing is enabled and prices are available for all open legs. Without an API key, your net cashflow (the sum of all recorded credits and debits) is always shown.</p>
             </div>
         </details>
 
